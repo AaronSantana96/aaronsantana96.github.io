@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aarón Andrés Santana Hernández | CV académico</title>
+  <meta name="description" content="CV académico de Aarón Andrés Santana Hernández. Docencia, biotecnología, bioelectrónica e investigación aplicada." />
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --paper: #ffffff;
+      --paper-soft: #fbfaf8;
+      --text: #26313d;
+      --muted: #5f6b7a;
+      --line: #e6ded5;
+      --accent: #5b351c;
+      --accent-2: #9b6a22;
+      --accent-soft: #f5efe8;
+      --shadow: 0 18px 50px rgba(20, 20, 20, 0.08);
+      --radius: 12px;
+      --max: 1220px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site {
+      width: min(var(--max), calc(100% - 28px));
+      margin: 30px auto;
+      border: 1px solid #ece7e0;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      background: var(--paper);
+    }
+
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      padding: 0 24px;
+      height: 68px;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .nav-button {
+      position: relative;
+      border: 0;
+      background: transparent;
+      padding: 0 10px;
+      min-width: max-content;
+      color: #111827;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: color 160ms ease;
+    }
+
+    .nav-button::after {
+      content: "";
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 180ms ease;
+    }
+
+    .nav-button:hover,
+    .nav-button.active {
+      color: var(--accent);
+    }
+
+    .nav-button.active::after {
+      transform: scaleX(1);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 56px;
+      padding: 32px 32px 48px;
+    }
+
+    .profile-card {
+      align-self: start;
+      position: sticky;
+      top: 96px;
+      padding: 28px 28px 30px;
+      border: 1px solid #ebe5dd;
+      border-radius: 8px;
+      background: #fff;
+      text-align: center;
+      box-shadow: 0 10px 28px rgba(35, 35, 35, 0.04);
+    }
+
+    .portrait {
+      width: 195px;
+      height: 195px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      background: #eee;
+    }
+
+    .profile-card h1 {
+      color: var(--accent);
+      font-size: 1.55rem;
+      line-height: 1.35;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+    }
+
+    .role {
+      color: #2d3748;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .small-rule {
+      width: 64px;
+      height: 2px;
+      background: #dfcdb7;
+      margin: 0 auto 22px;
+    }
+
+    .bio {
+      margin-bottom: 28px;
+      color: #394454;
+      font-size: 0.94rem;
+    }
+
+    .side-contact {
+      display: grid;
+      gap: 6px;
+      margin-bottom: 22px;
+      font-size: 0.84rem;
+      color: #3e4856;
+      overflow-wrap: anywhere;
+    }
+
+    .side-contact a {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .side-actions {
+      display: grid;
+      gap: 12px;
+    }
+
+    .side-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 42px;
+      border-radius: 4px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      border: 1px solid #111;
+      transition: 160ms ease;
+    }
+
+    .side-button.primary {
+      border-color: var(--accent-2);
+      background: linear-gradient(135deg, #865815, #9f6c20);
+      color: #fff;
+    }
+
+    .side-button.secondary {
+      color: #111;
+      background: #fff;
+    }
+
+    .side-button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(35, 35, 35, 0.10);
+    }
+
+    .content {
+      min-width: 0;
+    }
+
+    .section {
+      display: none;
+      animation: fade 180ms ease;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-header {
+      max-width: 780px;
+      margin: 34px auto 34px;
+      text-align: center;
+    }
+
+    .section-header h2 {
+      color: var(--accent);
+      font-size: clamp(2rem, 4vw, 2.85rem);
+      line-height: 1.05;
+      text-transform: uppercase;
+      letter-spacing: 0.015em;
+      margin-bottom: 20px;
+    }
+
+    .section-header::after {
+      content: "";
+      display: block;
+      width: 64px;
+      height: 3px;
+      margin: 0 auto 18px;
+      background: var(--accent);
+    }
+
+    .section-header p {
+      color: var(--muted);
+      font-size: 1.02rem;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .content-rule {
+      border: 0;
+      height: 1px;
+      background: #cfc7bd;
+      margin: 0 0 22px;
+    }
+
+    .entry-list {
+      display: grid;
+      gap: 0;
+    }
+
+    .entry {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 22px;
+      padding: 24px 0;
+      border-bottom: 1px solid #d9d1c7;
+    }
+
+    .entry:last-child {
+      border-bottom: 0;
+    }
+
+    .icon-box {
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #eadfd3;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 1.45rem;
+      flex: 0 0 auto;
+    }
+
+    .entry h3 {
+      color: var(--accent);
+      font-size: 1.02rem;
+      line-height: 1.35;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .meta {
+      color: #566274;
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .entry p,
+    .entry li {
+      color: #3e4856;
+      font-size: 0.94rem;
+    }
+
+    .entry ul {
+      padding-left: 18px;
+    }
+
+    .entry.compact {
+      grid-template-columns: 1fr;
+    }
+
+    .entry.compact h3 {
+      text-transform: none;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .data-card {
+      padding: 20px;
+      border: 1px solid #e5ddd4;
+      border-radius: 8px;
+      background: var(--paper-soft);
+    }
+
+    .data-card strong {
+      display: block;
+      color: var(--accent);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .data-card span,
+    .data-card a {
+      color: #3e4856;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 980px) {
+      .site {
+        width: min(100% - 18px, var(--max));
+        margin: 12px auto;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 22px;
+      }
+
+      .profile-card {
+        position: relative;
+        top: auto;
+      }
+
+      .top-nav {
+        justify-content: flex-start;
+      }
+
+      .portrait {
+        width: 165px;
+        height: 165px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .top-nav {
+        height: 62px;
+        padding: 0 12px;
+      }
+
+      .nav-button {
+        font-size: 0.76rem;
+      }
+
+      .layout {
+        padding: 16px;
+      }
+
+      .entry {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .two-col,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-header {
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="site">
+    <nav class="top-nav" aria-label="Secciones del CV">
+      <button class="nav-button active" data-section="datos" type="button">Datos personales</button>
+      <button class="nav-button" data-section="estudios" type="button">Estudios</button>
+      <button class="nav-button" data-section="publicaciones" type="button">Publicaciones</button>
+      <button class="nav-button" data-section="docencia" type="button">Docencia</button>
+      <button class="nav-button" data-section="cursos" type="button">Cursos</button>
+      <button class="nav-button" data-section="conferencias" type="button">Conferencias</button>
+      <button class="nav-button" data-section="investigacion" type="button">Investigación</button>
+      <button class="nav-button" data-section="gestion" type="button">Gestión académica</button>    </nav>
+
+    <main class="layout">
+      <aside class="profile-card">
+        <img class="portrait" src="aaron-profesional.jpg" alt="Retrato profesional de Aarón Andrés Santana Hernández" />
+        <h1>Aarón Andrés<br />Santana Hernández</h1>
+        <p class="role">Docente · Investigador</p>
+        <div class="small-rule"></div>
+        <p class="bio">
+          Doctorante con formación en ingeniería bioquímica y bioelectrónica, experiencia en docencia de ciencias básicas y participación en investigación científica aplicada.
+        </p>
+        <div class="side-contact">
+          <a href="mailto:info@aaronsh.com.mx">info@aaronsh.com.mx</a>
+          <a href="mailto:aaron.santanah@cinvestav.mx">aaron.santanah@cinvestav.mx</a>
+        </div>
+        <div class="side-actions">
+          <a class="side-button primary" href="CV-Aaron-Santana.pdf" target="_blank" rel="noopener">⬇ Descargar CV</a>
+          <a class="side-button secondary" href="https://www.linkedin.com/in/aar%C3%B3n-santana/" target="_blank" rel="noopener">▣ Ver perfil de LinkedIn</a>
+        </div>
+      </aside>
+
+      <section class="content">
+        <article class="section active" id="datos">
+          <header class="section-header">
+            <h2>Datos personales</h2>
+            <p>Información general de contacto y perfil profesional.</p>
+          </header>
+          <hr class="content-rule" />
+          <div class="two-col">
+            <div class="data-card"><strong>Nombre completo</strong><span>Aarón Andrés Santana Hernández</span></div>
+            <div class="data-card"><strong>Ubicación</strong><span>Mérida, Yucatán, México</span></div>
+            <div class="data-card"><strong>Ocupación</strong><span>Doctorante</span></div>
+            <div class="data-card"><strong>Área profesional</strong><span>Docencia, biotecnología, bioelectrónica y ciencias básicas aplicadas</span></div>
+            <div class="data-card"><strong>Correo alternativo</strong><a href="mailto:aaron.santanah@cinvestav.mx">aaron.santanah@cinvestav.mx</a></div>
+            <div class="data-card"><strong>Correo profesional</strong><a href="mailto:info@aaronsh.com.mx">info@aaronsh.com.mx</a></div>
+            <div class="data-card"><strong>Página web</strong><a href="https://aaronsh.com.mx" target="_blank" rel="noopener">aaronsh.com.mx</a></div>
+            <div class="data-card"><strong>CVU CONACYT</strong><span>1076669</span></div>
+          </div>
+        </article>
+
+        <article class="section" id="estudios">
+          <header class="section-header">
+            <h2>Estudios</h2>
+            <p>Formación académica en ingeniería bioquímica, biotecnología y bioelectrónica.</p>
+          </header>
+          <hr class="content-rule" />
+          <div class="entry-list">
+            <div class="entry">
+              <div class="icon-box"></div>
+              <div>
+                <h3>Maestría en Ingeniería Eléctrica · Especialidad en Bioelectrónica</h3>
+                <p class="meta">CINVESTAV · Zacatenco, Ciudad de México · 2020–2022</p>
+                <ul>
+                  <li>Grado obtenido el 28 de febrero de 2023.</li>
+                  <li>Cédula profesional: 13479823.</li>
+                  <li>Tesis: “Sistema de seguimiento del movimiento de larvas de escarabajo por medio de sensores magnéticos ante estímulos eléctricos y sonoros”.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="entry">
+              <div class="icon-box"></div>
+              <div>
+                <h3>Ingeniería Bioquímica · Especialidad en Biotecnología</h3>
+                <p class="meta">Tecnológico Nacional de México Campus Mérida · 2014–2019</p>
+                <ul>
+                  <li>Grado obtenido el 04 de noviembre de 2019.</li>
+                  <li>Cédula profesional: 11881436.</li>
+                  <li>Tesis: “Triterpenos pentacíclicos y otros metabolitos identificados en el propóleo de Melipona beecheii colectado en el municipio de Maní, Yucatán”.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="section" id="publicaciones">
+          <header class="section-header">
+            <h2>Publicaciones</h2>
+            <p>Producción científica publicada en revistas y memorias académicas.</p>
+          </header>
+          <hr class="content-rule" />
+          <div class="entry-list">
+            <div class="entry compact"><div><h3>Santana-Hernández, A. A., Yam-Puc, A., Borges-Argáez, R., Ramón-Sierra, J., Ortiz-Vázquez, E., Yah-Nahuat P., & Aguiar-Pech, J. (2026).</h3><p>Antioxidant activities of pentacyclic triterpenes from <em>M. beecheii</em> propolis and their semisynthetic derivatives. <strong>Chemistry & Biodiversity.</strong> En sometimiento.</p></div></div>
+            <div class="entry compact"><div><h3>Santana-Hernández, A. A., Yam-Puc, A., Borges-Argáez, R., Ramón-Sierra, J., Ortiz-Vázquez, E. (2025).</h3><p>Actividad antimicrobiana de los triterpenos pentacíclicos aislados del propóleo de <em>Melipona beecheii</em>. <strong>Rev. Mex. Inv. Prod. Nat.</strong>, 1 (Supl. Especial), p. 401.</p></div></div>
+            <div class="entry compact"><div><h3>Santana-Hernández, A. A., Ávila-Caballero, L., Cortina, R. E., Montoya Alvarez, S., Pérez Escamirosa, F., & Minor Martínez, A. (2025).</h3><p>Low-cost larvae tracking using a magnetic sensor array system. <strong>Revista Brasileira de Entomologia</strong>, 69(2), e20240087.</p></div></div>
+            <div class="entry compact"><div><h3>Yam-Puc A., Santana-Hernández A., Yah-Nahuat, P., Bastarrachea-Hoil, M., Ramón Sierra, J., Ortiz Vázquez, E. (2024).</h3><p>Actividad antibacteriana de los triterpenos pentacíclicos del propóleo de <em>Melipona beecheii</em>. <strong>Contribución del TecNM para la Autosuficiencia y Rescate del Campo Mexicano.</strong></p></div></div>
+            <div class="entry compact"><div><h3>Yam-Puc, A., Santana-Hernández, A. A., Yah-Nahuat, P. N., Ramón-Sierra, J. M., Cáceres-Farfán, M. R., Borges-Argáez, R. L., & Ortiz-Vázquez, E. (2019).</h3><p>Pentacyclic triterpenes and other constituents in propolis extract from <em>Melipona beecheii</em> collected in Yucatan, México. <strong>Revista Brasileira de Farmacognosia</strong>, 29(3), 358–363.</p></div></div>
+            <div class="entry compact"><div><h3>Alarcón-Angeles, G., Santana-Hernández, A., Castañeda-Briones, M. T., Gómez-Hernández, M. (2018).</h3><p>Desarrollo de un biosensor para el análisis de la inhibición enzimática causada por fisostigmina. <strong>Revista Tendencias en Docencia e Investigación en Química</strong>, 4(4), 668–672.</p></div></div>
+            <div class="entry compact"><div><h3>Santana-Hernández, A. y Can-Ek, M. (2018).</h3><p>Uso de extractos vegetales para la biorremediación de agua contaminada. <strong>Revista del Centro de Graduados e Investigación. Instituto Tecnológico de Mérida</strong>, 33(71), 71–78.</p></div></div>
+          </div>
+        </article>
+
+        <article class="section" id="docencia">
+          <header class="section-header">
+            <h2>Docencia</h2>
+            <p>Experiencia docente a nivel superior y medio superior en ciencias básicas, matemáticas, física e ingeniería.</p>
+          </header>
+          <hr class="content-rule" />
+          <div class="entry-list">
+            <div class="entry compact"><div><h3>Electromagnetismo</h3><p class="meta">Ingeniería en Semiconductores · Agosto–diciembre 2025</p><p>Asignatura impartida a nivel licenciatura.</p></div></div>
+            <div class="entry compact"><div><h3>Química</h3><p class="meta">Ingeniería Biomédica · Curso de verano · 23 de junio al 1 de agosto de 2025 · 60 horas</p><p>Curso de nivel licenciatura.</p></div></div>
+            <div class="entry compact"><div><h3>Química inorgánica</h3><p class="meta">Ingeniería Civil · Curso de verano · 23 de junio al 1 de agosto de 2025 · 75 horas</p><p>Curso de nivel licenciatura.</p></div></div>
+            <div class="entry compact"><div><h3>Cálculo integral</h3><p class="meta">Instituto Tecnológico Superior Progreso · Ingeniería en Administración · Enero–mayo 2025</p><p>Asignatura impartida a nivel superior.</p></div></div>
+            <div class="entry compact"><div><h3>Cálculo diferencial</h3><p class="meta">Instituto Tecnológico Superior Progreso · Ingeniería en Administración · Agosto–diciembre 2024</p><p>Asignatura impartida a nivel superior.</p></div></div>
+            <div class="entry compact"><div><h3>Investigación de operaciones</h3><p class="meta">Instituto Tecnológico Superior Progreso · Ingeniería en Sistemas Computacionales · Agosto–diciembre 2024</p><p>Asignatura impartida a nivel superior.</p></div></div>
+            <div class="entry compact"><div><h3>Álgebra lineal</h3><p class="meta">Instituto Tecnológico Superior Progreso · Ingeniería en Sistemas Computacionales · Enero–junio 2024</p><p>Asignatura impartida a nivel superior.</p></div></div>
+            <div class="entry compact"><div><h3>Estadística inferencial</h3><p class="meta">Instituto Tecnológico Superior Progreso · Ingeniería en Gestión Empresarial · Agosto–diciembre 2023</p><p>Asignatura impartida a nivel superior.</p></div></div>
+            <div class="entry compact"><div><h3>Álgebra lineal</h3><p class="meta">Instituto Tecnológico Superior Progreso · Animación Digital y Efectos Visuales · Agosto–diciembre 2023</p><p>Asignatura impartida a nivel superior.</p></div></div>
+            <div class="entry compact"><div><h3>Probabilidad y estadística descriptiva</h3><p class="meta">Instituto Tecnológico Superior Progreso · Ingeniería en Sistemas Computacionales · Agosto–diciembre 2023</p><p>Asignatura impartida a nivel superior.</p></div></div>
+            <div class="entry compact"><div><h3>Matemáticas VI · Pensamiento matemático</h3><p class="meta">Instituto Asturias · Preparatoria · Agosto–diciembre 2022</p><p>Asignatura impartida a nivel medio superior.</p></div></div>
+            <div class="entry compact"><div><h3>Matemáticas I · Álgebra</h3><p class="meta">Instituto Asturias · Preparatoria · Agosto–diciembre 2022</p><p>Asignatura impartida a nivel medio superior.</p></div></div>
+            <div class="entry compact"><div><h3>Cálculo integral</h3><p class="meta">Instituto Asturias · Preparatoria · Agosto–diciembre 2021</p><p>Asignatura impartida a nivel medio superior.</p></div></div>
+            <div class="entry compact"><div><h3>Trigonometría</h3><p class="meta">Instituto Asturias · Preparatoria · Agosto–diciembre 2021</p><p>Asignatura impartida a nivel medio superior.</p></div></div>
+            <div class="entry compact"><div><h3>Matemáticas V · Probabilidad y estadística descriptiva</h3><p class="meta">Instituto Asturias · Preparatoria · Agosto–diciembre 2021</p><p>Asignatura impartida a nivel medio superior.</p></div></div>
+            <div class="entry compact"><div><h3>Cálculo diferencial</h3><p class="meta">Instituto Asturias · Preparatoria · Enero–junio 2021</p><p>Asignatura impartida a nivel medio superior.</p></div></div>
+            <div class="entry compact"><div><h3>Álgebra avanzada</h3><p class="meta">Instituto Asturias · Preparatoria · Enero–junio 2021</p><p>Asignatura impartida a nivel medio superior.</p></div></div>
+            <div class="entry compact"><div><h3>Física 2 · Física clásica</h3><p class="meta">Instituto Asturias · Preparatoria · Enero–junio 2021</p><p>Asignatura impartida a nivel medio superior.</p></div></div>
+            <div class="entry compact"><div><h3>Matemáticas II · Geometría</h3><p class="meta">Instituto Asturias · Preparatoria · Enero–junio 2020</p><p>Asignatura impartida a nivel medio superior.</p></div></div>
+            <div class="entry compact"><div><h3>Cálculo diferencial</h3><p class="meta">Instituto Asturias · Preparatoria · Agosto–diciembre 2019</p><p>Asignatura impartida a nivel medio superior.</p></div></div>
+            <div class="entry compact"><div><h3>Física 1 · Física moderna</h3><p class="meta">Instituto Asturias · Preparatoria · Agosto–diciembre 2019</p><p>Asignatura impartida a nivel medio superior.</p></div></div>
+          </div>
+        </article>
+
+        <article class="section" id="cursos">
+          <header class="section-header">
+            <h2>Cursos</h2>
+            <p>Cursos impartidos y capacitaciones aprobadas vinculadas con docencia, laboratorio y análisis científico.</p>
+          </header>
+          <hr class="content-rule" />
+          <div class="entry-list">
+            <div class="entry"><div class="icon-box"></div><div><h3>Curso impartido · Métodos fisicoquímicos para extracción de bioactivos en especies vegetales</h3><p class="meta">UADY · Campus de Ciencias Biológicas y Agropecuarias · 19 de noviembre de 2025 · 2.5 horas</p><p>Participación como instructor en curso didáctico dirigido a estudiantes.</p></div></div>
+            <div class="entry"><div class="icon-box"></div><div><h3>Curso impartido · Métodos fisicoquímicos para extracción de bioactivos en especies vegetales</h3><p class="meta">UADY · Campus de Ciencias Biológicas y Agropecuarias · 2 de julio de 2024 · 5 horas</p><p>Participación como instructor en curso didáctico dirigido a estudiantes.</p></div></div>
+            <div class="entry"><div class="icon-box"></div><div><h3>Innovación educativa para el desarrollo docente</h3><p class="meta">Instituto Tecnológico Superior Progreso · 14 al 17 de enero de 2025 · 30 horas</p><p>Taller acreditado.</p></div></div>
+            <div class="entry"><div class="icon-box"></div><div><h3>Software SPSS y MINITAB</h3><p class="meta">Instituto Tecnológico Superior Progreso · 1 al 5 de julio de 2024 · 30 horas</p><p>Capacitación impartida por el Departamento de Ciencias Básicas.</p></div></div>
+            <div class="entry"><div class="icon-box"></div><div><h3>Espectrómetro FTIR · Equipo y software</h3><p class="meta">DEDUTEL · 13 al 14 de junio de 2024 · 6 horas</p><p>Capacitación para uso de equipo de laboratorio.</p></div></div>
+            <div class="entry"><div class="icon-box"></div><div><h3>Educación Media Superior: Retorno Seguro</h3><p class="meta">Instituto Mexicano del Seguro Social · 27 de septiembre de 2021 · 10 horas</p><p>Curso acreditado.</p></div></div>
+            <div class="entry"><div class="icon-box"></div><div><h3>Identificación estructural de moléculas orgánicas</h3><p class="meta">Dr. Jesús Alejandro Yam Puc · 24 de noviembre de 2018 · 40 horas</p><p>Curso acreditado.</p></div></div>
+          </div>
+        </article>
+
+        <article class="section" id="conferencias">
+          <header class="section-header">
+            <h2>Conferencias</h2>
+            <p>Participación como ponente en congresos y encuentros académicos.</p>
+          </header>
+          <hr class="content-rule" />
+          <div class="entry-list">
+            <div class="entry"><div class="icon-box"></div><div><h3>Antibacterial Properties of Pentacyclic Triterpenes from Melipona beecheii Propolis</h3><p class="meta">49º Congreso Internacional de Apicultura APIMONDIA · Copenhague, Dinamarca · 26 de septiembre de 2025</p><p>Participación como ponente.</p></div></div>
+            <div class="entry"><div class="icon-box"></div><div><h3>Triterpenos pentacíclicos y otros metabolitos identificados en el propóleo de Melipona beecheii colectado en el municipio de Maní, Yucatán</h3><p class="meta">XVIII Congreso Nacional de Biotecnología y Bioingeniería · León, Guanajuato · 23 al 28 de junio de 2019</p><p>Participación como ponente.</p></div></div>
+            <div class="entry"><div class="icon-box"></div><div><h3>Diseño de un biosensor electroquímico nanoestructurado para la detección de fisiostigmina</h3><p class="meta">VI Congreso Jóvenes Investigadores · Universidad Autónoma de Yucatán · 30 de agosto de 2018</p><p>Participación como ponente.</p></div></div>
+          </div>
+        </article>
+
+        <article class="section" id="investigacion">
+          <header class="section-header">
+            <h2>Investigación</h2>
+            <p>Presentación de resultados de investigación en congresos, ferias y reuniones científicas.</p>
+          </header>
+          <hr class="content-rule" />
+          <div class="entry-list">
+            <div class="entry"><div class="icon-box"></div><div><h3>Propiedades antibacterianas de los triterpenos pentacíclicos del propóleo de Melipona beecheii</h3><p class="meta">2° Congreso Multidisciplinario IEEE-Cinvestav · 26 al 28 de noviembre de 2025</p><p>Presentación de cartel. Tercer lugar a mejor cartel expuesto.</p></div></div>
+            <div class="entry"><div class="icon-box"></div><div><h3>Actividad antibacteriana y antibiofilm de triterpenos pentacíclicos y sus derivados semisintéticos provenientes del propóleo de Melipona beecheii</h3><p class="meta">20ª Reunión Internacional de Investigación en Productos Naturales · Mérida, Yucatán · 21 al 24 de mayo de 2025</p><p>Presentación de cartel en el Centro de Convenciones Siglo XXI.</p></div></div>
+            <div class="entry"><div class="icon-box"></div><div><h3>Actividad antibacteriana de la fracción fenólica de la miel de Melipona beecheii y determinación de sus componentes mayoritarios</h3><p class="meta">2ª Feria Yucatanense de la Medicina Tradicional Maya · 25 de octubre de 2024</p><p>Presentación de cartel en la Secretaría de Investigación, Innovación y Educación Superior del Gobierno del Estado de Yucatán.</p></div></div>
+            <div class="entry"><div class="icon-box"></div><div><h3>Development of a Biosensor for the Analysis of Enzymatic Inhibition Caused by Physostigmine</h3><p class="meta">XXIV Encuentro de la Sociedad Internacional de Electroquímica · Mérida, Yucatán · 7 al 10 de abril de 2019</p><p>Presentación de cartel por The International Society of Electrochemistry. Reconocimiento a mejor cartel expuesto.</p></div></div>
+            <div class="entry"><div class="icon-box"></div><div><h3>Triterpenos pentacíclicos aislados del propóleo de la abeja Melipona beecheii recolectado en Maní, Yucatán</h3><p class="meta">IX Congreso de Biotecnología y Bioingeniería del Sureste · Mérida, Yucatán · 24 al 26 de octubre de 2018</p><p>Presentación de cartel en la Facultad de Química de la Universidad Autónoma de Yucatán.</p></div></div>
+          </div>
+        </article>
+
+        <article class="section" id="gestion">
+          <header class="section-header">
+            <h2>Gestión académica</h2>
+            <p>Participación en actividades de apoyo académico, asesorías y organización de eventos educativos.</p>
+          </header>
+          <hr class="content-rule" />
+          <div class="entry-list">
+            <div class="entry"><div class="icon-box"></div><div><h3>Planeación y apoyo docente</h3><ul><li>Elaboración de planeación e instrumentación didáctica en Estadística inferencial, Álgebra lineal y Probabilidad y estadística descriptiva · Agosto–diciembre 2023.</li><li>Elaboración de planeación e instrumentación didáctica en Álgebra lineal · Enero–junio 2024.</li></ul></div></div>
+            <div class="entry"><div class="icon-box"></div><div><h3>Asesorías académicas</h3><ul><li>Asesor en cursos de preparación Pre-Exani II, Tecnológico Nacional de México Campus Mérida · Marzo–junio 2017.</li><li>Asesor de Cálculo Diferencial del club de estudios Lobos, Tecnológico Nacional de México Campus Mérida · 2015–2016.</li></ul></div></div>
+            <div class="entry"><div class="icon-box"></div><div><h3>Organización de eventos educativos</h3><ul><li>VI Coloquio Nacional de Ciencias Básicas Aplicadas a la Ingeniería · 7 de mayo de 2025.</li><li>Concurso de matemáticas nivel medio superior “Desafío guerrero” · 14 de marzo de 2025.</li><li>IV Coloquio de Ciencias Básicas Aplicadas a la Ingeniería · 11 de noviembre de 2024.</li><li>Coloquio de Cálculo Integral y sus aplicaciones en la industria · 21 de mayo al 6 de junio de 2024.</li><li>III Coloquio de Ciencias Básicas Aplicadas a la Ingeniería · 29 de mayo de 2024.</li><li>II Coloquio de Ciencias Básicas Aplicadas a la Ingeniería · 4 de diciembre de 2023.</li><li>Coloquio de Cálculo Diferencial y sus aplicaciones en la ingeniería · 4 al 6 de diciembre de 2023.</li><li>Concurso de matemáticas nivel medio superior “Desafío guerrero” · 25 de octubre de 2023.</li></ul></div></div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const navButtons = document.querySelectorAll('.nav-button');
+    const sections = document.querySelectorAll('.section');
+
+    navButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const target = button.dataset.section;
+
+        navButtons.forEach((item) => item.classList.remove('active'));
+        button.classList.add('active');
+
+        sections.forEach((section) => {
+          section.classList.toggle('active', section.id === target);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+
